@@ -1,0 +1,1 @@
+<h1>Jurusan Yang Diambil Oleh Farizal</h1>
