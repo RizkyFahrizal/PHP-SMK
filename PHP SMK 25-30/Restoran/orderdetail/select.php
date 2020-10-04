@@ -1,1 +1,0 @@
-<h1>Select order detail</h1>
