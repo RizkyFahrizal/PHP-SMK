@@ -1,6 +1,9 @@
 <?php 
-    require_once"../function.php";
+    if (isset($_GET['id'])) {
+    $id=$_GET['id'];
     $sql="DELETE FROM tblkategori WHERE idkategori=$id";
-    $result=mysqli_query($koneksi,$sql);
-     header("location:http://localhost/PHPsmk/Restoran/Kategori/select.php");
+    
+    $db->runSQL($sql);
+    header("location:?f=kategori&m=select");
+    }
 ?>

@@ -22,7 +22,10 @@
             while ($row=mysqli_fetch_assoc($result)) {
                 $data[]=$row;
             }
-            return $data;   
+            if (!empty($data)){
+                return $data; 
+            }
+             
         }
         public function getITEM($sql)
         {
@@ -55,5 +58,5 @@
 
     // $db->runSQL("INSERT INTO tblkategori VALUES ('','MAKANAN')");
     // $db->runSQL("DELETE FROM tblkategori WHERE idkategori=23");
-    $db->pesan("berhasil");
+    // $db->pesan("berhasil");
 ?>
