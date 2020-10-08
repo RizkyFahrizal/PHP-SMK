@@ -1,6 +1,6 @@
 <?php  
     $jumlahdata=$db->rowCOUNT("SELECT idkategori FROM tblkategori");
-    $banyak=3;
+    $banyak=4;
 
     $halaman=ceil($jumlahdata/$banyak);
 
@@ -20,7 +20,7 @@
 <a class="btn btn-primary" href="?f=kategori&m=insert" role="button">Tambah Data</a>
 </div>
 <h3>Kategori</h3>
-<table class="table table-bordered w-50">
+<table class="table table-bordered w-50 mt-4">
     <thead>
         <tr>
             <th>no</th>
@@ -30,6 +30,7 @@
         </tr>
     </thead>
     <tbody>
+    <?php if (!empty($row)){ ?>
         <?php foreach ($row as $r): ?>
             <tr>
                 <td><?php echo $no++?></td>
@@ -38,6 +39,7 @@
                 <td><a href="?f=kategori&m=update&id=<?php echo $r['idkategori']?>">Update</a></td>
             </tr>
         <?php endforeach ?>
+        <?php }?>
     </tbody>
 </table>
 <?php 

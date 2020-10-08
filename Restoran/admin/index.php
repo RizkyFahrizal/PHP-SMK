@@ -1,7 +1,14 @@
 <?php 
+    session_start();
     require_once"../dbcontroller.php";
     $db=new DB;
-
+    if (!isset($_SESSION['user'])) {
+        header("location:http://localhost/PHPsmk/github/sementara/Restoran/admin/login.php");
+    }
+    if (isset($_GET['log'])) {
+        session_destroy();
+        header("location:index.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +26,8 @@
                 <h2>Restoran</h2>
             </div>
             <div class="col-md-9">
-                <div class="float-right mt-3">Logout</div> 
+                <div class="float-right mt-4"><a href="?log=logout">Logout</a></div> 
+                <div class="float-right mt-4 mr-4">User : <a href="?f=user&m=updateuser&id=<?php echo $_SESSION['iduser']?>"> <?php  echo $_SESSION['user'];?></a></div> 
             </div>
         </div>
         <div class="row mt-5">
